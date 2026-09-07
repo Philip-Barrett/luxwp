@@ -1,0 +1,344 @@
+/* ==========================================================================
+   Wplend — стили карточки товара (single-product.php)
+   Подключается только на странице товара через functions.php.
+   ========================================================================== */
+
+*, *::before, *::after{ box-sizing:border-box; }
+
+:root{
+  --wl-bg:            #eef1f8;
+  --wl-card:          #fcfdff;
+  --wl-card-alt:      #e7eaf5;
+  --wl-border:        #e2e6f1;
+  --wl-ink:           #1f2a44;
+  --wl-ink-soft:      #5b6478;
+  --wl-ink-faint:     #8a91a6;
+  --wl-accent:        #17a589;
+  --wl-accent-dark:   #128a72;
+  --wl-good:          #2fb87c;
+  --wl-good-bg:       #e7f8f0;
+  --wl-danger:        #e8544a;
+  --wl-shadow:        0 3px 20px rgba(53,65,91,0.10);
+  --wl-radius:        14px;
+}
+
+.wl-single-product{ background:var(--wl-bg); padding:22px 0 60px; position:relative; z-index:1; }
+.wl-wrap{ max-width:1360px; margin:0 auto; padding:0 28px; }
+.wl-wrap a{ color:inherit; }
+
+/* Хлебные крошки — компактные, всегда что-то показывают */
+.wl-breadcrumb{ font-size:12.5px; color:var(--wl-ink-faint); margin-bottom:10px; line-height:1.4; min-height:16px; }
+.wl-breadcrumb a{ color:var(--wl-ink-faint); }
+.wl-breadcrumb a:hover{ color:var(--wl-accent); }
+.wl-crumb-sep{ opacity:.6; margin:0 2px; }
+
+/* Заголовок */
+.wl-title-row{ margin-bottom:18px; position:relative; z-index:2; }
+.wl-title{ font-size:28px; font-weight:600; margin:0 0 8px; color:var(--wl-ink); letter-spacing:-0.2px; line-height:1.3; }
+.wl-tagline{ margin:0; color:var(--wl-ink-soft); font-size:15px; max-width:900px; }
+
+/* Карточка товара */
+.wl-product-card{
+  background:var(--wl-card);
+  border-radius:var(--wl-radius);
+  box-shadow:var(--wl-shadow);
+  padding:26px;
+  display:grid;
+  grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr);
+  gap:32px;
+}
+
+.wl-hero-media{ border-radius:12px; overflow:hidden; background:var(--wl-card-alt); }
+.wl-hero-media img{ width:100%; height:auto; display:block; }
+
+/* Трастовые бейджи под изображением товара */
+.wl-trust-row{
+  display:flex; flex-wrap:wrap; gap:10px 22px;
+  margin-top:14px; padding:12px 0; border-top:1px solid var(--wl-border); border-bottom:1px solid var(--wl-border);
+}
+.wl-trust-item{ display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:600; color:var(--wl-good); min-width:0; }
+.wl-trust-item svg{ width:16px; height:16px; flex-shrink:0; }
+.wl-trust-item span{ white-space:normal; }
+
+/* Характеристики: Version / Updated / Changelog / Developer / Brand / Documentation
+   Фиксированные 3 колонки x 2 ряда, как в макете. */
+.wl-meta-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:18px 18px;
+  margin-top:18px; padding-top:4px;
+}
+.wl-label{ font-size:11.5px; color:var(--wl-ink-faint); text-transform:uppercase; letter-spacing:.3px; margin-bottom:4px; }
+.wl-value{ font-size:14px; font-weight:600; word-break:break-word; }
+.wl-value a{ color:var(--wl-accent); }
+.wl-value a:hover{ text-decoration:underline; }
+
+/* Файл проверен перед установкой — крупная центрированная иконка */
+.wl-install-banner{
+  margin-top:18px; background:var(--wl-good-bg); border-radius:10px;
+  padding:16px 18px; display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+}
+.wl-install-left{ display:flex; gap:14px; align-items:center; min-width:0; flex:1; }
+.wl-install-icon{ width:42px; height:42px; color:var(--wl-good); flex-shrink:0; }
+.wl-h{ font-weight:600; font-size:14px; margin-bottom:2px; }
+.wl-p{ font-size:12.5px; color:var(--wl-ink-soft); }
+.wl-install-right{
+  display:flex; align-items:center; gap:7px; flex-shrink:0;
+  font-size:12.5px; font-weight:600; color:var(--wl-accent-dark);
+  background:#fff; border-radius:8px; padding:8px 12px; border:1px solid rgba(23,165,137,0.3);
+}
+.wl-install-right:hover{ background:var(--wl-accent-dark); color:#fff; border-color:var(--wl-accent-dark); }
+.wl-install-right svg{ width:16px; height:16px; flex-shrink:0; }
+
+/* ---------- Покупка ---------- */
+.wl-buy-box{ border:1px solid var(--wl-border); border-radius:12px; padding:22px; }
+
+.wl-purchase-pill{
+  display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.3px; text-transform:uppercase;
+  color:var(--wl-ink-faint); border:1px solid var(--wl-border); border-radius:6px; padding:6px 12px; margin-bottom:16px;
+}
+
+.wl-price-row{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+.wl-price{ font-size:28px; font-weight:700; letter-spacing:-.4px; }
+.wl-price .woocommerce-Price-amount{ font-size:inherit; font-weight:inherit; }
+.wl-price-note{ font-size:12.5px; font-weight:600; color:var(--wl-accent); }
+.wl-price-note:hover{ text-decoration:underline; }
+
+.wl-add-cart-row{ display:flex; gap:10px; align-items:stretch; }
+.wl-add-cart-wrap{ flex:1; min-width:0; }
+.wl-add-cart-wrap form.cart{ display:block; height:100%; }
+.wl-add-cart-wrap .quantity{ display:none; }
+.wl-add-cart-wrap button.single_add_to_cart_button{
+  width:100%; height:100%; min-height:52px;
+  background:linear-gradient(135deg, var(--wl-accent), var(--wl-accent-dark)) !important;
+  border:none !important; color:#fff !important; font-size:15px; font-weight:600;
+  padding:14px !important; border-radius:9px !important; cursor:pointer; transition:opacity .15s; white-space:normal;
+}
+.wl-add-cart-wrap button.single_add_to_cart_button:hover{ opacity:.92; }
+
+/* Кнопка членства "Download Archive" ([membership_download_product_links]) —
+   тот же стиль, что у Add to Cart, плюс иконка скачивания перед текстом. */
+.wl-membership-download-wrap{ height:100%; }
+.wl-membership-download-wrap a.wplend-membership-download{
+  display:flex; align-items:center; justify-content:center; gap:9px;
+  width:100%; height:100%; min-height:52px;
+  background:linear-gradient(135deg, var(--wl-accent), var(--wl-accent-dark));
+  color:#fff; font-size:15px; font-weight:600; text-decoration:none;
+  border-radius:9px; padding:14px; transition:opacity .15s;
+}
+.wl-membership-download-wrap a.wplend-membership-download:hover{ opacity:.92; }
+.wl-membership-download-wrap a.wplend-membership-download::before{
+  content:"";
+  width:18px; height:18px; flex-shrink:0;
+  background-color:#fff;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M12 3v12m0 0l-4-4m4 4l4-4M5 19h14'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M12 3v12m0 0l-4-4m4 4l4-4M5 19h14'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Wishlist — [yith_wcwl_add_to_wishlist], визуально сведён к одной
+   квадратной кнопке-сердцу без текста (текст плагина скрыт через
+   font-size:0, иконка плагина показана в обычном размере). Проверьте
+   после установки — точные классы могут отличаться по версии плагина,
+   см. инструкцию. */
+.wl-wishlist-wrap{ flex-shrink:0; width:52px; }
+.wl-wishlist-wrap .yith-wcwl-add-to-wishlist{
+  width:52px; height:52px; border-radius:9px; border:1px solid var(--wl-border);
+  background:#fff; display:flex; align-items:center; justify-content:center;
+  font-size:0; line-height:0; overflow:hidden;
+}
+.wl-wishlist-wrap .yith-wcwl-add-to-wishlist a{ display:flex; align-items:center; justify-content:center; width:100%; height:100%; }
+.wl-wishlist-wrap .yith-wcwl-icon{ font-size:20px !important; color:var(--wl-ink); }
+.wl-wishlist-wrap .yith-wcwl-add-to-wishlist:hover{ border-color:var(--wl-danger); }
+.wl-wishlist-wrap .yith-wcwl-add-to-wishlist:hover .yith-wcwl-icon,
+.wl-wishlist-wrap .exists-in-wishlist .yith-wcwl-icon{ color:var(--wl-danger) !important; }
+.wl-wishlist-wrap .yith-wcwl-wishlistaddedbrowse,
+.wl-wishlist-wrap .yith-wcwl-wishlistexistsbrowse{ display:none !important; }
+
+.wl-member-hint{ margin:10px 0 0; font-size:12.5px; color:var(--wl-ink-soft); text-align:center; }
+.wl-member-hint a{ color:var(--wl-accent); font-weight:600; }
+
+.wl-divider{ height:1px; background:var(--wl-border); margin:18px 0; }
+
+.wl-feature-list{ list-style:none; margin:0 0 16px; padding:0; display:flex; flex-direction:column; gap:11px; }
+.wl-feature-list li{ display:flex; align-items:flex-start; gap:10px; font-size:13.5px; color:var(--wl-ink-soft); }
+.wl-feature-list li svg{ width:16px; height:16px; color:var(--wl-ink-faint); flex-shrink:0; margin-top:1px; }
+
+.wl-disclaimer{ font-size:12px; color:var(--wl-ink-faint); margin:0 0 16px; line-height:1.5; }
+
+.wl-inline-links{ display:flex; flex-wrap:wrap; gap:8px 18px; padding-top:14px; border-top:1px solid var(--wl-border); }
+.wl-inline-link{
+  display:flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; color:var(--wl-ink);
+  background:none; border:none; padding:0; cursor:pointer; font-family:inherit;
+}
+.wl-inline-link:hover{ color:var(--wl-accent); }
+.wl-inline-link svg{ width:15px; height:15px; flex-shrink:0; }
+
+/* Before you purchase */
+.wl-checklist-card{ margin-top:18px; border:1px solid var(--wl-border); border-radius:12px; padding:18px; }
+.wl-checklist-card h3{ font-size:15px; font-weight:600; margin:0 0 12px; }
+.wl-check-box{
+  display:flex; align-items:center; gap:10px; font-size:12.5px; color:var(--wl-ink-soft);
+  border:1px solid var(--wl-border); border-radius:9px; padding:11px 13px; margin-bottom:10px;
+}
+.wl-check-box svg{ width:16px; height:16px; color:var(--wl-ink-faint); flex-shrink:0; }
+.wl-check-box--action{
+  width:100%; text-align:left; background:var(--wl-good-bg); border-color:transparent;
+  color:var(--wl-accent-dark); font-weight:600; cursor:pointer; font-family:inherit; font-size:12.5px;
+}
+.wl-check-box--action svg{ color:var(--wl-accent-dark); }
+.wl-check-box--action:hover{ opacity:.85; }
+.wl-checklist-footnote{ font-size:11.5px; color:var(--wl-ink-faint); margin:6px 0 0; line-height:1.5; }
+.wl-checklist-footnote a{ color:var(--wl-accent); }
+
+/* ---------- Описание + сайдбар ---------- */
+.wl-content-row{ display:grid; grid-template-columns:minmax(0,2fr) minmax(280px,1fr); gap:24px; margin-top:24px; align-items:start; }
+
+.wl-description-card{
+  background:var(--wl-card); border-radius:var(--wl-radius); box-shadow:var(--wl-shadow);
+  padding:28px; font-size:14.5px; color:var(--wl-ink-soft); line-height:1.7;
+}
+.wl-description-card h2, .wl-description-card h3{ color:var(--wl-ink); }
+.wl-description-card img{ max-width:100%; height:auto; border-radius:8px; }
+
+.wl-sidebar-col{ position:sticky; top:20px; display:flex; flex-direction:column; gap:20px; }
+
+.wl-faq-card{ background:var(--wl-card); border-radius:var(--wl-radius); box-shadow:var(--wl-shadow); padding:22px; }
+.wl-faq-kicker{
+  display:flex; align-items:center; justify-content:center; gap:8px; text-align:center;
+  font-size:13.5px; font-weight:600; color:var(--wl-ink-soft);
+  padding-bottom:16px; margin-bottom:6px; border-bottom:1px solid var(--wl-border);
+}
+.wl-faq-kicker svg{ width:16px; height:16px; color:var(--wl-accent); flex-shrink:0; }
+.wl-faq-item{ border-bottom:1px solid var(--wl-border); }
+.wl-faq-item:last-child{ border-bottom:none; }
+.wl-faq-item summary{
+  list-style:none; cursor:pointer; display:flex; justify-content:space-between;
+  align-items:center; gap:10px; padding:13px 2px; font-size:13px; font-weight:600;
+}
+.wl-faq-item summary::-webkit-details-marker{ display:none; }
+.wl-plus{ width:18px; height:18px; flex-shrink:0; position:relative; }
+.wl-plus::before, .wl-plus::after{ content:""; position:absolute; background:var(--wl-ink-faint); border-radius:2px; }
+.wl-plus::before{ width:12px; height:2px; top:8px; left:3px; }
+.wl-plus::after{ width:2px; height:12px; top:3px; left:8px; transition:transform .15s; }
+.wl-faq-item[open] .wl-plus::after{ transform:rotate(90deg); opacity:0; }
+.wl-faq-item .wl-body{ padding:0 2px 14px; font-size:12.5px; color:var(--wl-ink-soft); }
+
+.wl-related-list{ display:flex; flex-direction:column; gap:12px; }
+.wl-related-item{
+  display:flex; gap:12px; align-items:center; background:var(--wl-card);
+  border-radius:12px; box-shadow:0 2px 8px rgba(53,65,91,0.08); padding:10px; transition:box-shadow .15s;
+}
+.wl-related-item:hover{ box-shadow:0 4px 14px rgba(53,65,91,0.14); }
+.wl-related-thumb{ width:52px; height:52px; border-radius:8px; overflow:hidden; flex-shrink:0; background:var(--wl-card-alt); }
+.wl-related-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.wl-related-name{ font-size:13px; font-weight:600; margin-bottom:2px; }
+.wl-related-price{ font-size:12.5px; font-weight:700; }
+.wl-related-price .woocommerce-Price-amount{ font-size:inherit; font-weight:inherit; }
+
+/* ---------- Модалки ---------- */
+.wl-modal{ position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px; }
+.wl-modal-backdrop{ position:absolute; inset:0; background:rgba(20,24,40,0.7); }
+.wl-modal-box{ position:relative; max-width:700px; width:100%; background:#fff; border-radius:10px; padding:16px; max-height:90vh; overflow-y:auto; overflow-x:hidden; }
+.wl-modal-box img{ width:100%; border-radius:6px; display:block; }
+.wl-modal-box--text{ padding:28px; max-width:480px; }
+.wl-modal-box--text h3{ margin:0 0 14px; font-size:17px; }
+.wl-modal-box--text ul{ margin:0; padding-left:20px; color:var(--wl-ink-soft); font-size:13.5px; line-height:1.8; }
+.wl-modal-box--form{ padding:32px; max-width:420px; }
+.wl-modal-close{
+  position:absolute; top:-14px; right:-14px; width:32px; height:32px; border-radius:50%;
+  background:#fff; border:1px solid var(--wl-border); font-size:18px; line-height:1; cursor:pointer;
+}
+
+#wl-update-form{ display:flex; flex-direction:column; gap:14px; }
+
+.wl-icon-input{
+  display:flex; align-items:center; gap:10px;
+  border:1px solid var(--wl-border); border-radius:8px; padding:0 14px;
+  width:100%;
+}
+.wl-icon-input svg{ width:17px; height:17px; color:var(--wl-ink-faint); flex-shrink:0; }
+.wl-icon-input input{
+  flex:1; min-width:0; width:100%; border:none; outline:none; background:none;
+  padding:13px 0; font-size:14px; font-family:inherit; color:var(--wl-ink);
+}
+.wl-icon-input input::placeholder{ color:#aab0c0; }
+
+.wl-captcha-row{ font-size:15px; font-weight:700; color:var(--wl-ink); text-align:left; }
+
+#wl-update-form button[type="submit"]{
+  background:var(--wl-danger); color:#fff; border:none; border-radius:8px;
+  padding:13px; font-size:14.5px; font-weight:600; cursor:pointer; width:100%;
+}
+#wl-update-form button[type="submit"]:hover{ opacity:.9; }
+.wl-form-message{ font-size:12.5px; margin:0; padding:10px 12px; border-radius:6px; }
+.wl-form-message--ok{ background:var(--wl-good-bg); color:#146c43; }
+.wl-form-message--error{ background:#fdecea; color:#b02a37; }
+
+/* ---------- Адаптив ---------- */
+
+/* Планшет альбомный / небольшие ноутбуки */
+@media (max-width:1200px){
+  .wl-wrap{ padding:0 20px; }
+  .wl-product-card{ gap:24px; padding:22px; }
+  .wl-content-row{ gap:18px; }
+}
+
+/* Планшет */
+@media (max-width:991px){
+  .wl-product-card{ grid-template-columns:1fr; }
+  .wl-content-row{ grid-template-columns:1fr; }
+  .wl-sidebar-col{ position:static; }
+  .wl-meta-grid{ grid-template-columns:repeat(3, 1fr); }
+  .wl-description-card{ padding:22px; }
+  .wl-buy-box, .wl-checklist-card{ padding:20px; }
+}
+
+/* Планшет книжный / крупный телефон */
+@media (max-width:767px){
+  .wl-single-product{ padding:16px 0 44px; }
+  .wl-wrap{ padding:0 16px; }
+  .wl-title{ font-size:24px; }
+  .wl-tagline{ font-size:14px; }
+  .wl-product-card{ padding:18px; border-radius:12px; }
+  .wl-meta-grid{ grid-template-columns:repeat(2, 1fr); gap:16px 14px; }
+  .wl-trust-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+  .wl-install-banner{ flex-direction:column; align-items:stretch; }
+  .wl-install-left{ align-items:flex-start; }
+  .wl-install-right{ justify-content:center; width:100%; }
+  .wl-price-row{ align-items:flex-start; flex-direction:column; gap:4px; }
+  .wl-content-row{ margin-top:18px; }
+  .wl-description-card{ padding:18px; font-size:14px; }
+  .wl-related-item{ padding:8px; }
+}
+
+/* Телефон */
+@media (max-width:560px){
+  .wl-title{ font-size:21px; }
+  .wl-breadcrumb{ font-size:11.5px; }
+  .wl-meta-grid{ grid-template-columns:1fr 1fr; gap:14px 12px; }
+  .wl-install-icon{ width:34px; height:34px; }
+
+  .wl-purchase-pill{ font-size:10.5px; padding:5px 10px; }
+  .wl-price{ font-size:24px; }
+
+  .wl-add-cart-row{ flex-wrap:wrap; }
+  .wl-add-cart-wrap{ flex-basis:100%; }
+  .wl-add-cart-wrap button.single_add_to_cart_button,
+  .wl-membership-download-wrap a.wplend-membership-download{ min-height:48px; font-size:14px; }
+  .wl-wishlist-wrap{ width:100%; }
+  .wl-wishlist-wrap .yith-wcwl-add-to-wishlist{ width:100%; height:44px; }
+
+  .wl-inline-links{ flex-direction:column; gap:10px; }
+  .wl-related-item{ flex-wrap:wrap; }
+
+  .wl-modal{ padding:12px; }
+  .wl-modal-box{ padding:14px; border-radius:8px; }
+  .wl-modal-box--text, .wl-modal-box--form{ padding:22px 18px; }
+  .wl-modal-close{ top:-10px; right:-10px; width:28px; height:28px; font-size:16px; }
+  .wl-icon-input input{ padding:11px 0; font-size:13.5px; }
+}
+
+/* Совсем маленькие экраны */
+@media (max-width:380px){
+  .wl-meta-grid{ grid-template-columns:1fr; }
+  .wl-title{ font-size:19px; }
+  .wl-price{ font-size:21px; }
+}
